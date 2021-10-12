@@ -149,8 +149,8 @@ const expectedOutcome = [
 
 	new Item('Sulfuras, Hand of Ragnaros', 5, 5), //tested
 
-	new Item('No name Product 1', 3, 3), //tested
-	new Item('No name Product 2', -2, 2), //tested
+	new Item('normal', 3, 3), //tested
+	new Item('normal', -2, 2), //tested
 ];
 
 const gildedRoseShop = new GildedRose(storeItems);

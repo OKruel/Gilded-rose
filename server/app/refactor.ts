@@ -112,8 +112,8 @@ export class GildedRose {
 				return;
 			}
 
-			//! PRODUCT UNREGISTERED
-			if (items.name === productNames.unregistered) {
+			//! PRODUCT NORMAL
+			if (items.name === productNames.normal) {
 				if (daysToSellMoreThen0 && qualityMoreThen0) {
 					items.sellIn -= 1;
 					items.quality -= 1;
@@ -122,6 +122,20 @@ export class GildedRose {
 				if (daysToSellLessThen0 && qualityMoreThen0) {
 					items.sellIn -= 1;
 					items.quality -= 2;
+					return;
+				}
+			}
+
+			//! PRODUCT CONJURED
+			if (items.name === productNames.conjured) {
+				if (daysToSellMoreThen0 && qualityMoreThen0) {
+					items.sellIn -= 1;
+					items.quality -= 2;
+					return;
+				}
+				if (daysToSellLessThen0 && qualityMoreThen0) {
+					items.sellIn -= 1;
+					items.quality -= 4;
 					return;
 				}
 			}
