@@ -1,8 +1,8 @@
 import { expect } from 'chai';
-import { Item, GildedRose } from '../../app/gilded-rose';
+import { Item, GildedRose } from '../../app/refactor';
 import { productNames } from '../../app/constants';
 describe('PRODUCT -> BACKSTAGE PASSES', function () {
-	it('Quality should be 0 and SellIn droped 1 if SellIn < 0', function () {
+	it('If selling day has passed (SellIn < 0) => Quality = 0 and SellIn - 1.', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, -1, 49)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, -2, 0)];
 
@@ -12,7 +12,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('48 < Quality < 50 && 6 < SellIn < 11 ===> Quality adds +1 -- SellIn subtracs -1 ', function () {
+	it('If selling days between 6 and 11 (6 < SellIn < 11) and Quality = 49  ==> Quality + 1 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 10, 49)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 9, 50)];
 
@@ -22,7 +22,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('Quality < 49 && 6 < SellIn < 11 ===> Quality adds +2 -- SellIn subtracs -1 ', function () {
+	it('If selling days between 6 and 11 (6 < SellIn < 11) and Quality < 49 ==> Quality + 2 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 10, -1)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 9, 1)];
 
@@ -32,7 +32,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('48 < Quality < 50 && 0 < SellIn < 6 ===> Quality adds +1 -- SellIn subtracs -1 ', function () {
+	it('If selling days between 0 and 6 (0 < SellIn < 6) and Quality = 49  ==> Quality + 1 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 1, 49)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 0, 50)];
 
@@ -42,7 +42,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('47 < Quality < 49 && 0 < SellIn < 6 ===> Quality adds +2 -- SellIn subtracs -1 ', function () {
+	it('If selling days between 0 and 6 (0 < SellIn < 6) and Quality = 48 ==> Quality + 2 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 1, 48)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 0, 50)];
 
@@ -52,7 +52,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('Quality < 48 && 0 < SellIn < 6 ===> Quality adds +3 -- SellIn subtracs -1 ', function () {
+	it('If selling days between 0 and 6 (0 < SellIn < 6) and Quality < 48 ==> Quality + 3 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 1, 45)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 0, 48)];
 
@@ -62,7 +62,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('Quality < 50 && SellIn > 11 ===> Quality adds +1 -- SellIn subtracs -1 ', function () {
+	it('If selling days more then 11 (SellIn > 11) and Quality < 50 ==> Quality + 1 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 12, 45)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 11, 46)];
 
@@ -72,7 +72,7 @@ describe('PRODUCT -> BACKSTAGE PASSES', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('Quality > 49 ===> Quality adds +0 -- SellIn subtracs -1 ', function () {
+	it('Quality = 50 ==> Quality + 0 and SellIn - 1 ', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, 12, 50)];
 		const testExpectedOutcome = [new Item(productNames.backstagePass, 11, 50)];
 
