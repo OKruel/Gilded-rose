@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Item, GildedRose } from '../../app/gilded-rose';
-import { productNames } from '../gilded-rose.spec';
+import { productNames } from '../../app/constants';
 describe('PRODUCT -> BACKSTAGE PASSES', function () {
 	it('Quality should be 0 and SellIn droped 1 if SellIn < 0', function () {
 		const testStoredProduct = [new Item(productNames.backstagePass, -1, 49)];

@@ -110,50 +110,50 @@ export class GildedRose {
 		return this.items;
 	}
 }
-// const storeItems = [
-// 	new Item('Aged Brie', 5, 50), //tested
-// 	new Item('Aged Brie', 5, 49), //tested
-// 	new Item('Aged Brie', -1, 49), //tested
-// 	new Item('Aged Brie', -1, 48), //tested
+const storeItems = [
+	new Item('Aged Brie', 5, 50), //tested
+	new Item('Aged Brie', 5, 49), //tested
+	new Item('Aged Brie', -1, 49), //tested
+	new Item('Aged Brie', -1, 48), //tested
 
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 0, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 48), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 47), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 48), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 47), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 46), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 0, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 48), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 10, 47), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 48), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 47), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 5, 46), //tested
 
-// 	new Item('Sulfuras, Hand of Ragnaros', 5, 5), //tested
+	new Item('Sulfuras, Hand of Ragnaros', 5, 5), //tested
 
-// 	new Item('test Product 1', 4, 4), //tested
-// 	new Item('test Product 2', -1, 4), //tested
-// ];
+	new Item('test Product 1', 4, 4), //tested
+	new Item('test Product 2', -1, 4), //tested
+];
 
-// const expectedOutcome = [
-// 	new Item('Aged Brie', 4, 50), //tested
-// 	new Item('Aged Brie', 4, 50), //tested
-// 	new Item('Aged Brie', -2, 50), //tested
-// 	new Item('Aged Brie', -2, 50), //tested
+const expectedOutcome = [
+	new Item('Aged Brie', 4, 50), //tested
+	new Item('Aged Brie', 4, 50), //tested
+	new Item('Aged Brie', -2, 50), //tested
+	new Item('Aged Brie', -2, 50), //tested
 
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', -1, 0), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 9, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 9, 49), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
-// 	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 49), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', -1, 0), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 9, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 9, 49), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 50), //tested
+	new Item('Backstage passes to a TAFKAL80ETC concert', 4, 49), //tested
 
-// 	new Item('Sulfuras, Hand of Ragnaros', 5, 5), //tested
+	new Item('Sulfuras, Hand of Ragnaros', 5, 5), //tested
 
-// 	new Item('No name Product 1', 3, 3), //tested
-// 	new Item('No name Product 2', -2, 2), //tested
-// ];
+	new Item('No name Product 1', 3, 3), //tested
+	new Item('No name Product 2', -2, 2), //tested
+];
 
-// const gildedRoseShop = new GildedRose(storeItems);
+const gildedRoseShop = new GildedRose(storeItems);
 
 // gildedRoseShop.updateQuality();
 

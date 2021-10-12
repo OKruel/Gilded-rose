@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Item, GildedRose } from '../../app/gilded-rose';
-import { productNames } from '../gilded-rose.spec';
+import { productNames } from '../../app/constants';
 
 describe('PRODUCT -> UNREGISTERED', function () {
 	it('Quality > 0 && SellIn > 0 ===> Quality subtracts -1 -- SellIn subtracts -1', function () {
