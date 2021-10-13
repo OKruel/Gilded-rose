@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Item, GildedRose } from '../../app/refactor1';
+import { Item, GildedRose } from '../../app/gilded-rose';
 import { Sulfuras } from '../../app/products/Sulfuras';
 import { ProductNames } from '../../app/constants';
 
