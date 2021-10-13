@@ -1,14 +1,23 @@
 import { GildedRose, Item } from '../gilded-rose';
 import { ProductNames } from '../constants';
 
+export class ConjuredItem extends Item {
+	constructor(
+		public name: ProductNames.conjured,
+		public sellIn: number,
+		public quality: number
+	) {
+		super(name, sellIn, quality);
+	}
+}
 export class Conjured extends GildedRose {
-	constructor(public items: Item[]) {
+	constructor(public items: ConjuredItem[]) {
 		super();
 		this.items = items;
 	}
 
 	updateQuality() {
-		this.items.forEach((item: Item) => {
+		this.items.forEach((item: ConjuredItem) => {
 			//!Quality
 			const qualityMoreThen0 = item.quality > 0;
 			//!Days to sell
@@ -16,17 +25,15 @@ export class Conjured extends GildedRose {
 			const daysToSellMoreThen0 = item.sellIn > 0;
 
 			//! PRODUCT CONJURED
-			if (item.name === ProductNames.conjured) {
-				if (daysToSellMoreThen0 && qualityMoreThen0) {
-					item.sellIn -= 1;
-					item.quality -= 2;
-					return;
-				}
-				if (daysToSellLessThen0 && qualityMoreThen0) {
-					item.sellIn -= 1;
-					item.quality -= 4;
-					return;
-				}
+			if (daysToSellMoreThen0 && qualityMoreThen0) {
+				item.sellIn -= 1;
+				item.quality -= 2;
+				return;
+			}
+			if (daysToSellLessThen0 && qualityMoreThen0) {
+				item.sellIn -= 1;
+				item.quality -= 4;
+				return;
 			}
 		});
 

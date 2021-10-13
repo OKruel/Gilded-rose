@@ -1,12 +1,11 @@
 import { expect } from 'chai';
-import { Item, GildedRose } from '../../app/gilded-rose';
-import { AgedBrie } from '../../app/products/AgedBrie';
+import { AgedBrie, AgedBrieItem } from '../../app/products/AgedBrie';
 import { ProductNames } from '../../app/constants';
 
 describe('PRODUCT -> AGED BRIE', function () {
-	it('If selling day has passed (SellIn < 0), and Quality = 50 => Quality continue the same and SellIn - 1.', function () {
-		const testStoredProduct = [new Item(ProductNames.brie, -1, 50)];
-		const testExpectedOutcome = [new Item(ProductNames.brie, -2, 50)];
+	it('1 - If selling day has passed (SellIn < 0), and Quality = 50 => Quality continue the same and SellIn - 1.', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, -1, 50)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, -2, 50)];
 
 		const gildedRoseShop = new AgedBrie(testStoredProduct);
 		const items = gildedRoseShop.updateQuality();
@@ -14,9 +13,9 @@ describe('PRODUCT -> AGED BRIE', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('If selling day has passed (SellIn < 0), and Quality = 49 => Quality + 1 and SellIn - 1.', function () {
-		const testStoredProduct = [new Item(ProductNames.brie, -1, 49)];
-		const testExpectedOutcome = [new Item(ProductNames.brie, -2, 50)];
+	it('2 - If selling day has passed (SellIn < 0), and Quality = 49 => Quality + 1 and SellIn - 1.', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, -1, 49)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, -2, 50)];
 
 		const gildedRoseShop = new AgedBrie(testStoredProduct);
 		const items = gildedRoseShop.updateQuality();
@@ -24,9 +23,9 @@ describe('PRODUCT -> AGED BRIE', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('If selling day has passed (SellIn < 0), and Quality < 49 => Quality + 2 and SellIn - 1', function () {
-		const testStoredProduct = [new Item(ProductNames.brie, -1, 48)];
-		const testExpectedOutcome = [new Item(ProductNames.brie, -2, 50)];
+	it('3 - If selling day has passed (SellIn < 0), and Quality < 49 => Quality + 2 and SellIn - 1', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, -1, 48)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, -2, 50)];
 
 		const gildedRoseShop = new AgedBrie(testStoredProduct);
 		const items = gildedRoseShop.updateQuality();
@@ -34,9 +33,9 @@ describe('PRODUCT -> AGED BRIE', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('If selling day has NOT passed (SellIn > 0), and Quality > 49 => Quality continue the same and SellIn - 1.', function () {
-		const testStoredProduct = [new Item(ProductNames.brie, 2, 50)];
-		const testExpectedOutcome = [new Item(ProductNames.brie, 1, 50)];
+	it('4 - If selling day has passed (SellIn < 0), and Quality > 50 => Quality continues the same and SellIn continues the same.', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, -2, 51)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, -2, 51)];
 
 		const gildedRoseShop = new AgedBrie(testStoredProduct);
 		const items = gildedRoseShop.updateQuality();
@@ -44,15 +43,19 @@ describe('PRODUCT -> AGED BRIE', function () {
 		expect(items).deep.equal(testExpectedOutcome);
 	});
 
-	it('If selling day has NOT passed (SellIn > 0), and Quality < 50 => Quality + 1 and SellIn - 1.', function () {
-		const testStoredProduct = [
-			new Item(ProductNames.brie, 2, 49),
-			new Item(ProductNames.brie, 2, -49),
-		];
-		const testExpectedOutcome = [
-			new Item(ProductNames.brie, 1, 50),
-			new Item(ProductNames.brie, 1, -48),
-		];
+	it('5 - If selling day has NOT passed (SellIn > 0), and Quality > 49 => Quality continue the same and SellIn - 1.', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, 2, 50)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, 1, 50)];
+
+		const gildedRoseShop = new AgedBrie(testStoredProduct);
+		const items = gildedRoseShop.updateQuality();
+
+		expect(items).deep.equal(testExpectedOutcome);
+	});
+
+	it('6 - If selling day has NOT passed (SellIn > 0), and Quality < 50 => Quality + 1 and SellIn - 1.', function () {
+		const testStoredProduct = [new AgedBrieItem(ProductNames.brie, 2, 49)];
+		const testExpectedOutcome = [new AgedBrieItem(ProductNames.brie, 1, 50)];
 
 		const gildedRoseShop = new AgedBrie(testStoredProduct);
 		const items = gildedRoseShop.updateQuality();
