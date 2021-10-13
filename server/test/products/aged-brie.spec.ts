@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { AgedBrie, AgedBrieItem } from '../../app/products/AgedBrie';
-import { ProductNames } from '../../app/constants';
+import { AgedBrie, AgedBrieItem } from '../../src/products/AgedBrie';
+import { ProductNames } from '../../src/enums/products';
 
 describe('PRODUCT -> AGED BRIE', function () {
 	it('1 - If selling day has passed (SellIn < 0), and Quality = 50 => Quality continue the same and SellIn - 1.', function () {

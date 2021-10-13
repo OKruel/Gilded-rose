@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { Sulfuras, SulfurasItem } from '../../app/products/Sulfuras';
-import { ProductNames } from '../../app/constants';
+import { Sulfuras, SulfurasItem } from '../../src/products/Sulfuras';
+import { ProductNames } from '../../src/enums/products';
 
 describe('PRODUCT -> SULFURAS, HAND OF RAGNAROS', function () {
 	it('1 - Suluras should not increase or decrease neither quality or sellIn in any circustance.', function () {

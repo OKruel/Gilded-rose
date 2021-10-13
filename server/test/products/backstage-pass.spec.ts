@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { BackstagePass, BackStageItem } from '../../app/products/BackstagePass';
-import { ProductNames } from '../../app/constants';
+import { BackstagePass, BackStageItem } from '../../src/products/BackstagePass';
+import { ProductNames } from '../../src/enums/products';
 describe('PRODUCT -> BACKSTAGE PASSES', function () {
 	it('1 - If selling day has passed (SellIn < 0) => Quality = 0 and SellIn - 1.', function () {
 		const testStoredProduct = [

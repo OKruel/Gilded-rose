@@ -1,5 +1,5 @@
-import { GildedRose, Item } from '../gilded-rose';
-import { ProductNames } from '../constants';
+import { GildedRose, Item } from '../classes/gilded-rose';
+import { ProductNames } from '../enums/products';
 
 export class AgedBrieItem extends Item {
 	constructor(

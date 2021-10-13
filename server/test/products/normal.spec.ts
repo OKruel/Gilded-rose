@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { Item } from '../../app/gilded-rose';
-import { NormalItems, NormalItem } from '../../app/products/NormalItems';
-import { ProductNames } from '../../app/constants';
+import { Item } from '../../src/classes/gilded-rose';
+import { NormalItems, NormalItem } from '../../src/products/NormalItems';
+import { ProductNames } from '../../src/enums/products';
 
 describe('PRODUCT -> NORMAL ITEMS', function () {
 	it('1 - If selling day has NOT passed (SellIn > 0) and Quality > 0 ==> Quality - 1 and SellIn - 1', function () {

@@ -1,41 +1,51 @@
 {
-  "name": "gilded-rose-kata",
-  "version": "1.0.0",
-  "description": "Gilded Rose kata in TypeScript",
-  "scripts": {
-    "precompile": "rimraf app/**/*.js test/**/*.js",
-    "compile": "tsc",
-    "pretest": "rimraf app/**/*.js test/**/*.js",
-    "test": "nyc mocha"
-  },
-  "license": "MIT",
-  "private": true,
-  "devDependencies": {
-    "@types/chai": "~3.5.2",
-    "@types/mocha": "~2.2.41",
-    "@types/node": "~7.0.18",
-    "chai": "~4.2.0",
-    "mocha": "~8.2.1",
-    "nyc": "~15.1.0",
-    "rimraf": "~3.0.2",
-    "source-map-support": "0.5.19",
-    "ts-node": "~9.1.1",
-    "typescript": "~4.1.3"
-  },
-  "nyc": {
-    "extension": [
-      ".ts"
-    ],
-    "exclude": [
-      "**/*.d.ts",
-      "test/**"
-    ],
-    "require": [
-      "ts-node/register"
-    ],
-    "reporter": [
-      "html",
-      "text"
-    ]
-  }
+	"name": "gilded-rose-kata",
+	"version": "1.0.0",
+	"description": "Gilded Rose kata in TypeScript",
+	"scripts": {
+		"precompile": "rimraf app/**/*.js test/**/*.js",
+		"compile": "tsc",
+		"pretest": "rimraf app/**/*.js test/**/*.js",
+		"test": "nyc mocha",
+		"dev": "ts-node-dev --poll src/index.ts"
+	},
+	"license": "MIT",
+	"private": true,
+	"devDependencies": {
+		"@types/chai": "~3.5.2",
+		"@types/express": "^4.17.13",
+		"@types/mocha": "~2.2.41",
+		"@types/mongoose": "^5.11.97",
+		"@types/node": "~7.0.18",
+		"chai": "~4.2.0",
+		"mocha": "~8.2.1",
+		"nyc": "~15.1.0",
+		"rimraf": "~3.0.2",
+		"source-map-support": "0.5.19",
+		"ts-node": "~9.1.1",
+		"ts-node-dev": "^1.1.8",
+		"typescript": "~4.1.3"
+	},
+	"nyc": {
+		"extension": [
+			".ts"
+		],
+		"exclude": [
+			"**/*.d.ts",
+			"test/**"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"reporter": [
+			"html",
+			"text"
+		]
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"mongoose": "5.10.9"
+	}
 }
