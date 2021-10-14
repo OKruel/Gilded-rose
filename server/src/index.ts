@@ -4,7 +4,7 @@ import dotEnv from 'dotenv';
 dotEnv.config();
 
 const start = async () => {
-	const port = process.env.PORT;
+	const port = process.env.PORT || 5000;
 
 	if (!port) {
 		throw new Error('Environment variables not defined in .env file');
