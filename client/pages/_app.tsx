@@ -1,19 +1,15 @@
 import { AppProps } from 'next/app';
-
-//  STYLE
-// import { GlobalStyle } from '../global/layout/components/GlobalStyle';
+import ProductProvider from '../context/productsContext';
 
 interface AppPropsWithCookies extends AppProps {
 	cookies: unknown;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const MyApp = ({ Component, pageProps }: AppPropsWithCookies) => {
 	return (
-		<>
-			{/* <GlobalStyle /> */}
+		<ProductProvider>
 			<Component {...pageProps} />
-		</>
+		</ProductProvider>
 	);
 };
 
